@@ -1,0 +1,114 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "westeurope"
+        },
+        "networkInterfaceName": {
+            "value": "vmdigweuddbs01747"
+        },
+        "enableAcceleratedNetworking": {
+            "value": true
+        },
+        "networkSecurityGroupName": {
+            "value": "NSG-DIG-WEU-D-SBNT-MySql"
+        },
+        "networkSecurityGroupRules": {
+            "value": [
+                {
+                    "name": "default-allow-ssh",
+                    "properties": {
+                        "priority": 1000,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceApplicationSecurityGroups": [],
+                        "destinationApplicationSecurityGroups": [],
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "22"
+                    }
+                }
+            ]
+        },
+        "subnetName": {
+            "value": "SBNT-MySql"
+        },
+        "virtualNetworkName": {
+            "value": "VNET-DIG-WEU-D-Cetaphil"
+        },
+        "addressPrefixes": {
+            "value": [
+                "10.0.1.0/24"
+            ]
+        },
+        "subnets": {
+            "value": [
+                {
+                    "name": "SBNT-MySql",
+                    "properties": {
+                        "addressPrefix": "10.0.1.0/24"
+                    }
+                }
+            ]
+        },
+        "publicIpAddressName": {
+            "value": "PIP-DIG-WEU-D-Cetaphil"
+        },
+        "publicIpAddressType": {
+            "value": "Dynamic"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        },
+        "virtualMachineName": {
+            "value": "VMDIGWEUDDBS01"
+        },
+        "virtualMachineComputerName": {
+            "value": "VMDIGWEUDDBS01"
+        },
+        "virtualMachineRG": {
+            "value": "DefaultResourceGroup-WEU"
+        },
+        "osDiskType": {
+            "value": "Premium_LRS"
+        },
+        "dataDisks": {
+            "value": [
+                {
+                    "lun": 0,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "VMDIGWEUDDBS01-DAT01",
+                    "storageAccountType": null,
+                    "diskSizeGB": null,
+                    "diskEncryptionSet": null
+                }
+            ]
+        },
+        "dataDiskResources": {
+            "value": [
+                {
+                    "name": "VMDIGWEUDDBS01-DAT01",
+                    "sku": "Premium_LRS",
+                    "properties": {
+                        "diskSizeGB": 512,
+                        "creationData": {
+                            "createOption": "empty"
+                        }
+                    }
+                }
+            ]
+        },
+        "virtualMachineSize": {
+            "value": "Standard_D4s_v3"
+        },
+        "adminUsername": {
+            "value": "azureuser"
+        }
+    }
+}
